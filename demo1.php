@@ -122,13 +122,15 @@ $subscribers = $invoice['subscribers'];
             </div>
             <div class="clearfix"></div>
 
-            <div class="col-xs-12">
-                <div class="well well-sm">
-                    <p class="bold"><?= __( 'note' ) ?>:</p>
+            <?php if (!empty($invoice['note'])){ ?>
+                <div class="col-xs-12">
+                    <div class="well well-sm">
+                        <p class="bold"><?= __( 'note' ) ?>:</p>
 
-                    <div><?= $invoice['note'] ?? '' ?></div>
+                        <div><?= $invoice['note'] ?? '' ?></div>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

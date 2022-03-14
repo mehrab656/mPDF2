@@ -36,7 +36,6 @@ class Invoice {
 				'price' => rand( 5, 100 )
 			];
 		}
-
 		$data['note'] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet incidunt modi officia quae sint! Dolorem esse eveniet nesciunt obcaecati rem. Architecto eius error incidunt iste, nam omnis quis sit voluptatibus.';
 
 		return $data;
