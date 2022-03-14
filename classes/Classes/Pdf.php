@@ -3,11 +3,12 @@
 
 namespace Classes;
 
+use Mpdf\Mpdf;
 use function write_file;
 
 require_once 'vendor/autoload.php';
 require_once 'helper.php';
-require_once 'classes/PDFBase.php';
+require_once 'classes/Classes/PDFBase.php';
 
 class Pdf extends PDFBase {
 
@@ -16,14 +17,14 @@ class Pdf extends PDFBase {
 	protected $autoLangToFont;
 
 	function __construct( $output_type = 'S', $autoScriptToLang = true, $autoLangToFont = true ) {
-		parent::__construct( 'Mehrab Hossain', 'mPDF Implementation', 20, 'Mehrab Hossain', 'fullpage', 'This is Header', 'This is Footer' );
+		parent::__construct( 'Mehrab Hossain', 'mPDF Implementation', 20, 'Mehrab Hossain', 'fullpage', '', '' );?
 		$this->output_type      = $output_type;
 		$this->autoScriptToLang = $autoScriptToLang;
 		$this->autoLangToFont   = $autoLangToFont;
 	}
 
 	function createPdf( $file, $pdfFileName='' ) {
-		$mpdf                   = new \Mpdf\Mpdf();
+		$mpdf                   = new Mpdf();
 		$mpdf->autoScriptToLang = $this->autoScriptToLang;
 		$mpdf->autoLangToFont   = $this->autoLangToFont;
 
@@ -44,7 +45,7 @@ class Pdf extends PDFBase {
 
 		$mpdf->WriteHTML( $content );
 		$mpdf->SetHTMLHeader( '<p classes="text-center">' . $this->headerText . '</p>', '', true );
-		$mpdf->SetHTMLFooter( '<p classes="text-center">' . $this->footerText . '</p>', '', true );
+		$mpdf->SetHTMLFooter( '<p classes="text-center">' . $this->footerText . '</p>', '' );
 
 		try {
 			$this->savePdf( $mpdf,$pdfFileName );

@@ -3,7 +3,7 @@
 
 use Classes\Invoice;
 
-require_once 'classes/Invoice.php';
+require_once 'classes/Classes/Invoice.php';
 require_once 'helper.php';
 
 $invoice     = ( new Invoice() )->data();
