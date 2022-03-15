@@ -5,7 +5,7 @@
 }
 body {
     font-family: DejaVu Sans !important;
-    padding: 50px 15px;
+    padding: 20px 15px;
     margin: 0;
     height: 100%;
     background: #FFF !important;
@@ -16,35 +16,16 @@ body:before, body:after {
     display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,h2 {
     font-family: DejaVu Sans !important;
-    margin: 10px 0 !important;
+    font-weight: bold;
 }
 h1 {
-    font-size: 32px;
-    line-height: 32px;
-    font-weight: bold;
+    font-size: 20px;
 }
 h2 {
     font-size: 16px;
     line-height: 16px;
-    font-weight: bold;
-}
-h3 {
-    font-size: 15px;
-    line-height: 15px;
-}
-h4 {
-    font-size: 14px;
-    line-height: 14px;
-}
-h5 {
-    font-size: 13px;
-    line-height: 13px;
-}
-h6 {
-    font-size: 12px;
-    line-height: 12px;
 }
 
 header, footer {
@@ -58,32 +39,83 @@ header, footer {
     right: 0;
     margin: 0;
 }
-header { top: 10px; }
+header { top: 0px; }
 footer { bottom: 10px; }
 
 .title {
     text-transform: uppercase !important;
 }
 
-.table th {
-    background-color: #eee !important;
-    text-align: center;
-    padding: 5px;
+/*Invoice Details Table Style*/
+.well{
+    border-color: #d9e2e6 !important;
     color: #000 !important;
-    border-color: #ddd !important;
+    background-color: #e7eff3 !important;
 }
+.well .invoice-details  td {
+    line-height: 20px;
+}
+/*Invoice Details Table Style End*/
 
-.table td {
-    padding: 4px;
+
+/*Billing table Design*/
+/*.table-bordered>tbody>tr>td {*/
+/*    border: 1px solid #d9e2e6;*/
+/*}*/
+.table-responsive .table th{
+
+    border-color: #d9e2e6 !important;
+    color: #000 !important;
+    background-color: #e7eff3 !important;
+    padding: 8px;
+    font-size: 12px;
+    text-align: left;
 }
+.table-responsive th:nth-child(5){
+    text-align: right;
+}
+.table-responsive .table tbody td{
+    border: 1px solid #d9e2e6;
+
+    text-align:left;
+    padding: 8px;
+    font-size: 12px;
+    vertical-align:middle;
+}
+.table-responsive td:nth-child(1){
+    width:10%;
+}
+.table-responsive td:nth-child(2){
+
+    width:40%;
+}
+.table-responsive td:nth-child(3){
+    width:20%;
+}
+.table-responsive td:nth-child(4){
+    width: 15%;
+}
+.table-responsive td:nth-child(5){
+    text-align:right; width:15%;
+}
+.odd td {
+    background-color: #f6f7f7;
+}
+/*Billing table Design End*/
+
+
+
 
 
 .page {
     page-break-after: always;
 }
 
-.striped>tbody>:nth-child(odd) {
-    background-color: #abb8c3;
-}
 @page { margin: 100px 25px; }
+
 .pagenum:before { content: counter(page); }
+
+.reseller-address{
+    line-height: 20px;
+    font-size: 12px;
+}

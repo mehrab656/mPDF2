@@ -17,7 +17,8 @@ class Pdf extends PDFBase {
 	protected $autoLangToFont;
 
 	function __construct( $output_type = 'S', $autoScriptToLang = true, $autoLangToFont = true ) {
-		parent::__construct( 'Mehrab Hossain', 'mPDF Implementation', 20, 'Mehrab Hossain', 'fullpage', '', '' );?
+		parent::__construct( 'Pixelaar FZC LLC', 'Customer bill copy', 5, 'Pixelaar FZC LLC', 'fullpage', '', '' );
+//		parent::__construct( 'Mehrab Hossain', 'mPDF Implementation', 20, 'Mehrab Hossain', 'fullpage', '', '' );?
 		$this->output_type      = $output_type;
 		$this->autoScriptToLang = $autoScriptToLang;
 		$this->autoLangToFont   = $autoLangToFont;
@@ -28,7 +29,7 @@ class Pdf extends PDFBase {
 		$mpdf->autoScriptToLang = $this->autoScriptToLang;
 		$mpdf->autoLangToFont   = $this->autoLangToFont;
 
-		$mpdf->SetTopMargin( $this->marginTop );
+		$mpdf->SetTopMargin( 3 );
 		$mpdf->SetTitle( $this->title );
 		$mpdf->SetAuthor( $this->author );
 		$mpdf->SetCreator( $this->creator );
@@ -44,8 +45,8 @@ class Pdf extends PDFBase {
 
 
 		$mpdf->WriteHTML( $content );
-		$mpdf->SetHTMLHeader( '<p classes="text-center">' . $this->headerText . '</p>', '', true );
-		$mpdf->SetHTMLFooter( '<p classes="text-center">' . $this->footerText . '</p>', '' );
+		$mpdf->SetHTMLHeader( '<p class="text-center">' . $this->headerText . '</p>', '', true );
+		$mpdf->SetHTMLFooter( '<p class="text-center">' . $this->footerText . '</p>', '' );
 
 		try {
 			$this->savePdf( $mpdf,$pdfFileName );

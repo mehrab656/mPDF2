@@ -34,8 +34,7 @@ $subscribers = $invoice['subscribers'];
                            src="data:image/png;base64,<?php echo base64_encode( file_get_contents( 'https://pixelaar.com/wp-content/uploads/2020/07/main_logo.png' ) ); ?>"></span>
 
                 <h2 style="margin: 0;"><?= __( 'Pixelaar FZC LLC' ) ?></h2>
-				<?= __( 'UAE, 27/A ....' ) ?>
-                <br>
+				<?= __( 'UAE, 27/A ....' ) ?><br>
 				<?= __( 'Registration No: 12345678790' ) ?><br>
 				<?= __( 'Tel: ' . '+990 12313123213' . ' Email: ' . 'admin@pixelaar.com' ) ?>
                 <hr>
@@ -43,43 +42,44 @@ $subscribers = $invoice['subscribers'];
             <div class="clearfix"></div>
 
             <div class="padding10">
-
                 <div class="col-xs-5">
 					<?= __( 'to' ) ?>:<br/>
                     <h2><?= __( $reseller['name'] ) ?></h2>
+                    <div class="reseller-address">
 
-					<?= $reseller['address']['street'] ?? '' ?><br>
-					<?= $reseller['address']['city'] ?? ''  ?>
-					<?= $reseller['address']['state'] ? ( ', ' . $reseller['address']['state'] ) : '' ?>
-                    <?= $reseller['address']['zip'] ? ( '-' . $reseller['address']['zip'] ) : '' ?><br>
-                    <?= $reseller['address']['country']??''?><br>
-					<?= $reseller['address']['phone'] ?>
+	                    <?= $reseller['address']['street'] ?? '' ?><br>
+	                    <?= $reseller['address']['city'] ?? ''  ?>
+                        <?= $reseller['address']['state'] ? ( ', ' . $reseller['address']['state'] ) : '' ?>
+                        <?= $reseller['address']['zip'] ? ( '-' . $reseller['address']['zip'] ) : '' ?> <br>
+                        <?= $reseller['address']['country']??''?><br>
+                        <?= $reseller['address']['phone'] ?>
+
+                    </div>
+
                 </div>
 
                 <div class="col-xs-5 pull-right">
                     <div class="well well-sm">
-                        <h1 class="text-center title" style="margin: 0;"><?= 'Invoice'; ?></h1>
-                        <table style="margin-bottom: 10px;">
+                        <h1 class="text-center title" style="line-height: 0px;margin-top: 6px"><?= 'Invoice'; ?></h1>
+                        <table class="invoice-details" style="margin-bottom: 10px; font-size: 12px">
                             <tr>
-                                <td><?= __( 'Ref' ); ?> </td>
+                                <td style=""><?= __( 'Ref' ); ?> </td>
                                 <td> : <strong><?= 1234; ?></strong></td>
                             </tr>
                             <tr>
-                                <td><?= __( 'Date' ) ?></td>
+                                <td style=""><?= __( 'Date' ) ?></td>
                                 <td> : <strong><?= $invoice['date'] ?></strong></td>
                             </tr>
                             <tr>
-                                <td><?= __( 'Sales Status' ) ?></td>
+                                <td style=""><?= __( 'Sales Status' ) ?></td>
                                 <td> : <strong><?= __( $invoice['sales_status'] ) ?></strong></td>
                             </tr>
                             <tr>
-                                <td><?= __( 'Payment Status' ) ?></td>
+                                <td ><?= __( 'Payment Status' ) ?></td>
                                 <td> : <strong><?= __( $invoice['payment_status'] ) ?></strong></td>
                             </tr>
                         </table>
-                        <div class="clearfix"></div>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
 
             </div>
@@ -87,26 +87,26 @@ $subscribers = $invoice['subscribers'];
 
             <div class="col-xs-12">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped">
+                    <table class="table table-bordered">
                         <thead>
                         <tr>
                             <th><?= __( '#' ); ?></th>
                             <th><?= __( 'Subscriber' ) ?></th>
                             <th><?= __( 'Tariff Plan' ) ?></th>
+                            <th><?= __( 'Billing Cycle' ) ?></th>
                             <th><?= __( 'Price' ) ?></th>
                         </tr>
                         </thead>
                         <tbody>
-						<?php foreach ( $subscribers as $key => $subscriber ) {
-							?>
-                            <tr>
-                                <td style="text-align:center; width:10%; vertical-align:middle;"><?= ++ $key ?></td>
-                                <td style="width: 30%; text-align:center; vertical-align:middle;"><?= __( $subscriber['name'] ) ?></td>
-                                <td style="width: 30%; text-align:center; vertical-align:middle;"><?= __( $subscriber['plan'] ) ?></td>
-                                <td style="text-align:right; width:30%;"><?= '$' . __( $subscriber['price'] ) ?></td>
+						<?php $key = 1; foreach ( $subscribers as $subscriber ) { ?>
+                            <tr class="<?php echo $key%2 ? 'odd' : 'even' ?>">
+                                <td><?= $key ?></td>
+                                <td><?= __( $subscriber['name'] ) ?></td>
+                                <td>Yearly</td>
+                                <td><?= __( $subscriber['plan'] ) ?></td>
+                                <td> <?= '$' . __( $subscriber['price'] ) ?></td>
                             </tr>
-							<?php
-						} ?>
+							<?php $key++; } ?>
                         <tr>
                             <td colspan="2"></td>
                             <td style="text-align:right; font-weight:bold;">
